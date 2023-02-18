@@ -7,7 +7,7 @@ const generateJWTToken = (userDetails) => {
       expiresIn: process.env.JWT_EXPIRED_DATE,
       data: userDetails,
     },
-    process.env.JWT_TOKEN
+    process.env.JWT_SECRET
   );
 
   return token;
