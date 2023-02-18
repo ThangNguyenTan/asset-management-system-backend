@@ -4,10 +4,10 @@ const config = require('config');
 const generateJWTToken = (userDetails) => {
   const token = jwt.sign(
     {
-      expiresIn: config.get('jwt_expired_date'),
+      expiresIn: process.env.JWT_EXPIRED_DATE,
       data: userDetails,
     },
-    config.get('jwt_secret')
+    process.env.JWT_TOKEN
   );
 
   return token;

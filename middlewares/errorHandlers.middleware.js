@@ -10,7 +10,7 @@ const defaultErrorHandler = (err, req, res, next) => {
     ...err,
   });
 
-  if (config.get('node_env') === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     if (statusCode === 500) {
       return res.status(statusCode).send({ message: 'Internal Server Error' });
     }

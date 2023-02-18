@@ -13,7 +13,7 @@ const validateToken = async (req, res, next) => {
   accessToken = accessToken.split(' ')[1];
 
   try {
-    const validToken = verify(accessToken, config.get('jwt_secret'));
+    const validToken = verify(accessToken, process.env.JWT_TOKEN);
     user = validToken.data;
     req.user = user;
     if (!req.roles || !req.roles.includes(user.userType)) {
